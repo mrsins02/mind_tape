@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindTape</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>🧠 MindTape</h1>
+      <button id="settingsBtn" class="icon-btn" title="Settings">⚙️</button>
+    </header>
+    
+    <div id="settingsPanel" class="settings-panel hidden">
+      <label>API Key:</label>
+      <input type="password" id="apiKeyInput" placeholder="Enter API key">
+      <button id="saveSettings" class="btn btn-small">Save</button>
+    </div>
+    
+    <div class="tabs">
+      <button class="tab active" data-tab="summary">Summary</button>
+      <button class="tab" data-tab="related">Related</button>
+      <button class="tab" data-tab="search">Search</button>
+      <button class="tab" data-tab="notes">Notes</button>
+    </div>
+    
+    <div id="summaryTab" class="tab-content active">
+      <div class="section">
+        <h3>Current Page</h3>
+        <p id="pageTitle" class="page-title">Loading...</p>
+        <div id="pageSummary" class="summary-box">
+          <p>Analyzing page...</p>
+        </div>
+        <button id="saveBtn" class="btn btn-primary">Save to Memory</button>
+      </div>
+    </div>
+    
+    <div id="relatedTab" class="tab-content">
+      <div class="section">
+        <h3>Related Memories</h3>
+        <div id="relatedList" class="memory-list">
+          <p class="empty-state">No related memories found</p>
+        </div>
+      </div>
+    </div>
+    
+    <div id="searchTab" class="tab-content">
+      <div class="section">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search your memories...">
+          <button id="searchBtn" class="btn">Search</button>
+        </div>
+        <div id="searchResults" class="memory-list"></div>
+      </div>
+      <div class="section">
+        <h3>Ask a Question</h3>
+        <div class="search-box">
+          <input type="text" id="questionInput" placeholder="Ask about your browsing history...">
+          <button id="askBtn" class="btn">Ask</button>
+        </div>
+        <div id="answerBox" class="answer-box hidden"></div>
+      </div>
+    </div>
+    
+    <div id="notesTab" class="tab-content">
+      <div class="section">
+        <h3>Notes for this page</h3>
+        <textarea id="noteInput" placeholder="Add a note..."></textarea>
+        <button id="saveNoteBtn" class="btn btn-primary">Save Note</button>
+        <div id="notesList" class="notes-list"></div>
+      </div>
+    </div>
+    
+    <footer class="footer">
+      <span id="statusIndicator" class="status-dot"></span>
+      <span id="statusText">Connecting...</span>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
